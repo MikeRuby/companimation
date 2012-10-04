@@ -1,0 +1,36 @@
+// Blur In
+
+@include animation(blurIn, 1.5s);
+
+@include webkit-keyframes(blurIn) {
+    from {
+        -webkit-filter: blur(3px) opacity(0);
+    }
+    to {
+        -webkit-filter: blur(0px) opacity(1);
+    }
+}
+@include moz-keyframes(blurIn) {
+    from {
+        -moz-filter: blur(3px) opacity(0);
+    }
+    to {
+        -moz-filter: blur(0px) opacity(1);
+    }
+}
+@include o-keyframes(blurIn) {
+    from {
+        -o-filter: blur(3px) opacity(0);
+    }
+    to {
+        -o-filter: blur(0px) opacity(1);
+    }
+}
+@include official-keyframes(blurIn) {
+    from {
+        filter: blur(3px) opacity(0);
+    }
+    to {
+        filter: blur(0px) opacity(1);
+    }
+}

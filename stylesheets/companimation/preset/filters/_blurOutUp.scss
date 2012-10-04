@@ -1,0 +1,44 @@
+// Blur In
+
+@include animation(blurOutUp, 1.5s);
+
+@include webkit-keyframes(blurOutUp) {
+    0% {
+        -webkit-filter: blur(0px) opacity(1);
+        -webkit-transform: translateY(0px);
+    }
+    100% {
+        -webkit-filter: blur(3px) opacity(0);
+        -webkit-transform: translateY(-20px);
+    }
+}
+@include moz-keyframes(blurOutUp) {
+    0% {
+        -moz-filter: blur(0px) opacity(1);
+        -moz-transform: translateY(0px);
+    }
+    100% {
+        -moz-filter: blur(3px) opacity(0);
+        -moz-transform: translateY(-20px);
+    }
+}
+@include o-keyframes(blurOutUp) {
+    0% {
+        -o-filter: blur(0px) opacity(1);
+        -o-transform: translateY(0px);
+    }
+    100% {
+        -o-filter: blur(3px) opacity(0);
+        -o-transform: translateY(-20px);
+    }
+}
+@include official-keyframes(blurOutUp) {
+    0% {
+        filter: blur(0px) opacity(1);
+        transform: translateY(0px);
+    }
+    100% {
+        filter: blur(3px) opacity(0);
+        transform: translateY(-20px);
+    }
+}

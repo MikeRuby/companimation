@@ -1,0 +1,48 @@
+// Fade Out, Right (Big)
+
+@include animation(fadeOutRightBig);
+
+@include webkit-keyframes(fadeOutRightBig) {
+    0% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: translateX(2000px);
+    }
+}
+@include moz-keyframes(fadeOutRightBig) {
+    0% {
+        opacity: 1;
+        -moz-transform: translateX(0);
+    }
+
+    100% {
+        opacity: 0;
+        -moz-transform: translateX(2000px);
+    }
+}
+@include o-keyframes(fadeOutRightBig) {
+    0% {
+        opacity: 1;
+        -o-transform: translateX(0);
+    }
+
+    100% {
+        opacity: 0;
+        -o-transform: translateX(2000px);
+    }
+}
+@include official-keyframes(fadeOutRightBig) {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(2000px);
+    }
+}

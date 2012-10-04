@@ -1,0 +1,20 @@
+// Lightspeed Out
+
+@include animation(lightSpeedOut, 0.25s, ease-in);
+
+@include webkit-keyframes(lightSpeedOut) {
+    0% { -webkit-transform: translateX(0%) skewX(0deg); opacity: 1; }
+    100% { -webkit-transform: translateX(100%) skewX(-30deg); opacity: 0; }
+}
+@include moz-keyframes(lightSpeedOut) {
+    0% { -moz-transform: translateX(0%) skewX(0deg); opacity: 1; }
+    100% { -moz-transform: translateX(100%) skewX(-30deg); opacity: 0; }
+}
+@include o-keyframes(lightSpeedOut) {
+    0% { -o-transform: translateX(0%) skewX(0deg); opacity: 1; }
+    100% { -o-transform: translateX(100%) skewX(-30deg); opacity: 0; }
+}
+@include official-keyframes(lightSpeedOut) {
+    0% { transform: translateX(0%) skewX(0deg); opacity: 1; }
+    100% { transform: translateX(100%) skewX(-30deg); opacity: 0; }
+}

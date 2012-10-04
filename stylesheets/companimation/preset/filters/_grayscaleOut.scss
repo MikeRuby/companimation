@@ -1,0 +1,36 @@
+// Greyscale Out
+
+@include animation(grayscaleIn, 3s);
+
+@include webkit-keyframes(grayscaleIn) {
+    0% {
+        -webkit-filter: grayscale(0);
+    }
+    100% {
+        -webkit-filter: grayscale(1.0);
+    }
+}
+@include moz-keyframes(grayscaleIn) {
+    0% {
+        -moz-filter: grayscale(0);
+    }
+    100% {
+        -moz-filter: grayscale(1.0);
+    }
+}
+@include o-keyframes(grayscaleIn) {
+    0% {
+        -o-filter: grayscale(0);
+    }
+    100% {
+        -o-filter: grayscale(1.0);
+    }
+}
+@include official-keyframes(grayscaleIn) {
+    0% {
+        filter: grayscale(0);
+    }
+    100% {
+        filter: grayscale(1.0);
+    }
+}
