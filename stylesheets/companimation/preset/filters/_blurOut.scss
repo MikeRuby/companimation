@@ -4,33 +4,41 @@
 
 @include webkit-keyframes(blurOut) {
     0% {
-        -webkit-filter: blur(0px) opacity(1);
+        -webkit-filter: blur(0px);
+        opacity: 1;
     }
     100% {
-        -webkit-filter: blur(3px) opacity(0);
+        -webkit-filter: blur(3px);
+        opacity: 0;
     }
 }
 @include moz-keyframes(blurOut) {
     0% {
-        -moz-filter: blur(0px) opacity(1);
+        -moz-filter: blur(0px);
+        opacity: 1;
     }
     100% {
-        -moz-filter: blur(3px) opacity(0);
+        -moz-filter: blur(3px);
+        opacity: 0;
     }
 }
 @include o-keyframes(blurOut) {
     0% {
-        -o-filter: blur(0px) opacity(1);
+        -o-filter: blur(0px);
+        opacity: 1;
     }
     100% {
-        -o-filter: blur(3px) opacity(0);
+        -o-filter: blur(3px);
+        opacity: 0;
     }
 }
 @include official-keyframes(blurOut) {
     0% {
-        filter: blur(0px) opacity(1);
+        filter: blur(0px);
+        opacity: 1;
     }
     100% {
-        filter: blur(3px) opacity(0);
+        filter: blur(3px);
+        opacity: 0;
     }
 }

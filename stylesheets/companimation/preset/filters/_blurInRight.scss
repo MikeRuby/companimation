@@ -4,41 +4,49 @@
 
 @include webkit-keyframes(blurInRight) {
     0% {
-        -webkit-filter: blur(3px) opacity(0);
+        -webkit-filter: blur(3px);
         -webkit-transform: translateX(20px);
+        opacity: 0;
     }
     100% {
-        -webkit-filter: blur(0px) opacity(1);
+        -webkit-filter: blur(0px);
         -webkit-transform: translateX(0px);
+        opacity: 1;
     }
 }
 @include moz-keyframes(blurInRight) {
     0% {
-        -moz-filter: blur(3px) opacity(0);
+        -moz-filter: blur(3px);
         -moz-transform: translateX(20px);
+        opacity: 0;
     }
     100% {
-        -moz-filter: blur(0px) opacity(1);
+        -moz-filter: blur(0px);
         -moz-transform: translateX(0px);
+        opacity: 1;
     }
 }
 @include o-keyframes(blurInRight) {
     0% {
-        -o-filter: blur(3px) opacity(0);
+        -o-filter: blur(3px);
         -o-transform: translateX(20px);
+        opacity: 0;
     }
     100% {
-        -o-filter: blur(0px) opacity(1);
+        -o-filter: blur(0px);
         -o-transform: translateX(0px);
+        opacity: 1;
     }
 }
 @include official-keyframes(blurInRight) {
     0% {
-        filter: blur(3px) opacity(0);
+        filter: blur(3px);
         transform: translateX(20px);
+        opacity: 0;
     }
     100% {
-        filter: blur(0px) opacity(1);
+        filter: blur(0px);
         transform: translateX(0px);
+        opacity: 1;
     }
 }
