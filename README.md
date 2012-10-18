@@ -4,7 +4,7 @@ CSS animations. In Compass. Real easy-like. Sodding brilliant.
 
 ## Overview
 
-_ Another animation extension for Compass? Seriously? But Mike, Why? _ 
+_Another animation extension for Compass? Seriously? But Mike, Why?_ 
 
 The truth is, I use Compass a lot. Recently I've started using animations a lot more on certain projects, so naturally I started looking for a better way to handle them since currently Compass does not provide any mixins for animations. So... I looked around at the extensions already available and decided I'd rather do it my way. So I did. HUZZAH!
 
