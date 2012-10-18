@@ -79,11 +79,21 @@ Even though Companimation comes with a bunch of presets to get you started quick
 
 ### <a name="mixin-animation">#</a> animation($name, $duration, $timing, $iterations, $delay, $fill, $direction, $state)
 
-@todo
+A convenience function for defining multiple properties for an animation at once. All properties except $name are optional. Pass 'null' for a parameter to prevent it from being set. Useful for setting all, or all but one or two, properties.
+
+Example:
+
+``` scss
+@include animation( 'fadeIn', 2s, ease-in-out );
+
+// OR
+
+@include animation( 'flash', 1s, null, 2, null, both);
+```
 
 ### <a name="mixin-animation-name">#</a> animation-name($name)
 
-@todo
+Specifies the name of an animation to use. The string $name must correspond with a set of keyframes defined using one of the keyframe mixins.
 
 ### <a name="mixin-animation-duration">#</a> animation-duration($duration)
 
