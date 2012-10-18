@@ -1,0 +1,160 @@
+@import 'companimation';
+@import 'companimation/preset';
+
+/*
+ * Extending on a class name that is the same as the animation
+ * name isn't exactly the most logical thing, but it works
+ * best for swapping animations in and out by changing class
+ * names.
+ */
+
+// Bounce
+
+.bounce         { @extend %bounce; }
+
+.bounceIn       { @extend %bounceIn; }
+.bounceInDown   { @extend %bounceInDown; }
+.bounceInLeft   { @extend %bounceInLeft; }
+.bounceInRight  { @extend %bounceInRight; }
+.bounceInUp     { @extend %bounceInUp; }
+
+.bounceOut      { @extend %bounceOut; }
+.bounceOutDown  { @extend %bounceOutDown; }
+.bounceOutLeft  { @extend %bounceOutLeft; }
+.bounceOutRight { @extend %bounceOutRight; }
+.bounceOutUp    { @extend %bounceOutUp; }
+
+// Fade
+
+.fadeIn             { @extend %fadeIn; }
+.fadeInDown         { @extend %fadeInDown; }
+.fadeInDownBig      { @extend %fadeInDownBig; }
+.fadeInLeft         { @extend %fadeInLeft; }
+.fadeInLeftBig      { @extend %fadeInLeftBig; }
+.fadeInRight        { @extend %fadeInRight; }
+.fadeInRightBig     { @extend %fadeInRightBig; }
+.fadeInUp           { @extend %fadeInUp; }
+.fadeInUpBig        { @extend %fadeInUpBig; }
+
+.fadeOut            { @extend %fadeOut; }
+.fadeOutDown        { @extend %fadeOutDown; }
+.fadeOutDownBig     { @extend %fadeOutDownBig; }
+.fadeOutLeft        { @extend %fadeOutLeft; }
+.fadeOutLeftBig     { @extend %fadeOutLeftBig; }
+.fadeOutRight       { @extend %fadeOutRight; }
+.fadeOutRightBig    { @extend %fadeOutRightBig; }
+.fadeOutUp          { @extend %fadeOutUp; }
+.fadeOutUpBig       { @extend %fadeOutUpBig; }
+
+// Filters (Experimental)
+
+.blurIn         { @extend %blurIn; }
+.blurInDown     { @extend %blurInDown; }
+.blurInLeft     { @extend %blurInLeft; }
+.blurInRight    { @extend %blurInRight; }
+.blurInUp       { @extend %blurInUp; }
+
+.blurOut        { @extend %blurOut; }
+.blurOutDown    { @extend %blurOutDown; }
+.blurOutLeft    { @extend %blurOutLeft; }
+.blurOutRight   { @extend %blurOutRight; }
+.blurOutUp      { @extend %blurOutUp; }
+
+.grayscaleIn    { @extend %grayscaleIn; }
+.grayscaleOut   { @extend %grayscaleOut; }
+
+// Flip
+
+.flip       { @extend %flip; }
+.flipInX    { @extend %flipInX; }
+.flipInY    { @extend %flipInY; }
+.flipOutX   { @extend %flipOutX; }
+.flipOutY   { @extend %flipOutY; }
+
+// Roll
+
+.rollIn     { @extend %rollIn; }
+.rollOut    { @extend %rollOut; }
+
+// Rotate
+
+.rotateIn               { @extend %rotateIn; }
+.rotateInDownLeft       { @extend %rotateInDownLeft; }
+.rotateInDownRight      { @extend %rotateInUpRight; }
+.rotateInUpLeft         { @extend %rotateInUpLeft; }
+.rotateInUpRight        { @extend %rotateInUpRight; }
+.rotateOut              { @extend %rotateOut; }
+.rotateOutDownLeft      { @extend %rotateOutDownLeft; }
+.rotateOutDownRight     { @extend %rotateOutDownRight; }
+.rotateOutUpLeft        { @extend %rotateOutUpLeft; }
+.rotateOutUpRight       { @extend %rotateOutUpRight; }
+
+// Special
+
+.flash          { @extend %flash; }
+.hinge          { @extend %hinge; }
+.lightSpeedIn   { @extend %lightSpeedIn; }
+.lightSpeedOut  { @extend %lightSpeedOut; }
+.pulse          { @extend %pulse; }
+.shake          { @extend %shake; }
+.swing          { @extend %swing; }
+.tada           { @extend %tada; }
+.wiggle         { @extend %wiggle; }
+.wobble         { @extend %wobble; }
+
+/**
+ * Example Styles
+ */
+
+$demo-width: 250px;
+
+html {
+    height: 100%;
+}
+
+body {
+    margin-top: 50px;
+    font-size: 18px;
+    color: #333;
+    font-family: "Helvetica Neue", "Helvetica", arial, sans-serif;
+    background-image: -webkit-linear-gradient(#fff, #eee);
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+select {
+    $select-width: $demo-width;
+
+    width: $select-width;
+
+    display: block;
+    margin: 0 auto 4em;
+}
+
+button {
+    $button-width: $demo-width;
+    $button-height: 100px;
+
+    width: $button-width;
+    height: $button-height;
+
+    display: block;
+    margin: 0 auto;
+
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #222;
+    background: #eee;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #e1e1e1;
+    }
+
+}
