@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Companimation
 
 CSS animations. In Compass. Real easy-like. Sodding brilliant.

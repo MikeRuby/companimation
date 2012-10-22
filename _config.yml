@@ -1,3 +1,4 @@
-auto: true
-server: true
-production_url : http://mikefowler.github.com/companimation
+---
+baseurl: http://mikefowler.github.com/companimation
+pygments: true
+source: /
