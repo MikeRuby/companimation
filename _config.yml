@@ -1,4 +1,13 @@
----
-baseurl: http://mikefowler.github.com/companimation
+auto: true
 pygments: true
-source: /
+title: Companimation
+author:
+    name: Mike Fowler
+    email: mike@mikefowler.me
+    github: mikefowler
+    twitter: michaelrfowler
+baseurl: /
+url: http://mikefowler.github.com/companimation
+source: .
+destination: ./_site
+plugins: ./_plugins
