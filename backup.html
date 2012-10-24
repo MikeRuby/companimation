@@ -1,0 +1,327 @@
+---
+layout: default
+title: Companimation
+---
+<h1>Companimation</h1>
+
+<h2>CSS animations. In Compass. Real easy-like. Sodding brilliant.</h2>
+
+<h3>Overview</h3>
+
+<p><i>Another animation extension for Compass? Seriously? But Mike, Why?</i></p>
+
+<p>The truth is, I use Compass a lot. Recently I've started using animations a lot more on certain projects, so naturally I started looking for a better way to handle them since currently Compass does not provide any mixins for animations. So... I looked around at the extensions already available and decided I'd rather do it my way. So I did. HUZZAH!</p>
+
+<p>Companimation provides two unique things: a basic set of mixins to help you create your own animations, and a collection of presets (both original and sourced from <a href="http://daneden.me/animate/">Dan Eden's Animate.css</a> to get you up and running fast.</p>
+
+<h3>Installation and Usage</h3>
+
+<p>Companimation is available as a RubyGem. To install it, open up a terminal and type:</p>
+
+<script type="syntaxhighlighter" class="brush: bash"><![CDATA[
+
+gem install companimation
+
+]]></script>
+
+<p>After you've installed the gem, getting Companimation into your project is as easy as requiring it in your Compass configuration file and then importing it into your Sass stylesheet:</p>
+
+<script type="syntaxhighlighter" class="brush: sass"><![CDATA[
+// config.rb
+require 'companimation'
+
+// app.scss
+@import 'companimation';
+]]></script>
+
+<h3>Using Presets</h3>
+
+<p>Using presets in Companimation is a breeze. Presets take advantage of Sass 3.2 placeholder selectors. Importing a preset creates a placeholder selector which you can then use with @extend on any selector in your stylesheet. Like this:</p>
+
+<script type="syntaxhighlighter" class="brush: sass"><![CDATA[
+@import 'companimation';
+@import 'companimation/preset/fade';
+
+body {
+  @extend %fadeIn;
+}
+#main {
+  @extend %fadeInUp;
+}
+]]></script>
+
+<p>That's it. Really. The full list of presets can be found below.</p>
+
+<h3>Changing Default Settings</h3>
+
+<p>Companimation has some default variables that you can override by setting before you import the library. Here they are, with their default values.</p>
+
+<script type="syntaxhighlighter" class="brush: sass"><![CDATA[
+$default-animation-duration: 1s;
+$default-animation-timing-function: ease;
+$default-animation-fill-mode: both;
+$default-animation-iterations: 1;
+$default-animation-direction: normal;
+$default-animation-play-state: running;
+$default-animation-delay: 2s;
+>>]></script>
+
+<h3>Creating Animations</h3>
+
+<p>Even though Companimation comes with a bunch of presets to get you started quick, it also exposes all of the mixins used internally to quickly create animations.</p>
+
+<p><strong>A note about browser support:</strong> The following mixins will output browser prefixes based on what you've defined for <a href="http://compass-style.org/reference/compass/support/">Compass's Cross-Browser Support</a> configuration variables.</p>
+
+<ul>
+  <li>[animation](#mixin-animation)
+    <ul>
+      <li>[animation-name](#mixin-animation-name)</li>
+      <li>[animation-duration](#mixin-animation-duration)</li>
+      <li>[animation-timing-function](#mixin-animation-timing-function)</li>
+      <li>[animation-fill-mode](#mixin-animation-fill-mode)</li>
+      <li>[animation-iteration-count](#mixin-animation-iteration-count)</li>
+      <li>[animation-direction](#mixin-animation-direction)</li>
+      <li>[animation-play-state](#mixin-animation-play-state)</li>
+      <li>[animation-delay](#mixin-animation-delay)</li>
+    </ul>
+  </li>
+  <li>[keyframes](#mixin-keyframes)
+    <ul>
+      <li>[webkit-keyframes](#mixin-keyframes-webkit)</li>
+      <li>[moz-keyframes](#mixin-keyframes-mozilla)</li>
+      <li>[o-keyframes](#mixin-keyframes-opera)</li>
+      <li>[official-keyframes](#mixin-keyframes-official)</li>
+    </ul>
+  </li>
+</ul>
+
+<h4><a name="mixin-animation">#</a> animation($name, $duration, $timing, $iterations, $delay, $fill, $direction, $state)</h4>
+
+<p>A convenience function for defining multiple properties for an animation at once. All properties except $name are optional. Pass 'null' for a parameter to prevent it from being set. Useful for setting all, or all but one or two, properties.</p>
+
+<p>Example:</p>
+
+<script type="syntaxhighlighter" class="brush: sass"><![CDATA[
+@include animation( 'fadeIn', 2s, ease-in-out );
+
+// OR
+
+@include animation( 'flash', 1s, null, 2, null, both);
+]]></script>
+
+<h4><a name="mixin-animation-name">#</a> animation-name( $name )</h4>
+
+<p>Specifies the name of an animation to use. The string $name must correspond with the name of a set of keyframes defined using one of the keyframe mixins. ([W3C Spec Reference](http://www.w3.org/TR/css3-animations/#animation-name-property))</p>
+
+<p>Example:<p>
+
+<script type="syntaxhighlighter" class="brush: sass"><![CDATA[
+@include animation-name( 'fadeIn' );
+]]></script>
+
+<h4><a name="mixin-animation-duration">#</a> animation-duration( $duration )</h4>
+
+<p>Specifies the duration of an animation in seconds or milliseconds. (<a href="http://www.w3.org/TR/css3-animations/#animation-duration-property">W3C Spec Reference</a>)</p>
+
+<p>Example:</p>
+<script type="syntaxhighlighter" class="brush: sass"><![CDATA[
+@include animation-duration( 2s );
+]]></script>
+
+<h4><a name="mixin-animation-timing-function">#</a> animation-timing-function( $timing )</h4>
+
+<p>Specifies a built-in or custom timing function to use for an animation where $timing may be: 'ease', 'linear', 'ease-in', 'ease-out', 'ease-in-out', 'step-start', 'step-end', 'steps()' or 'cubic-bezier()'. (<a href="http://www.w3.org/TR/css3-animations/#animation-timing-function-property">W3C Spec Reference</a>)
+
+<p>Example:</p>
+<script type="syntaxhighlighter" class="brush: sass"><![CDATA[
+@include animation-timing-function( ease-in );
+]]></script>
+
+<h4><a name="mixin-animation-fill-mode">#</a> animation-fill-mode( $mode )</h4>
+
+<p>Specifies a fill mode to be used for an animation where $mode may be: 'none', 'forwards', 'backwards' or 'both'. (<a href="http://www.w3.org/TR/css3-animations/#animation-fill-mode-property">W3C Spec Reference</a>)
+
+<p>Example:</p>
+<script type="syntaxhighlighter" class="brush: sass"><![CDATA[
+@include animation-fill-mode( both );
+]]></script>
+
+<h4><a name="mixin-animation-iteration-count">#</a> animation-iteration-count( $count )</h4>
+
+<p>Specifies the number of times an animation should play where $count is an integer. (<a href="http://www.w3.org/TR/css3-animations/#animation-iteration-count-property">W3C Spec Reference</a>)
+
+<p>Example:</p>
+<script type="syntaxhighlighter" class="brush: sass"><![CDATA[
+@include animation-iteration-count( 3 );
+]]></script>
+
+<h4><a name="mixin-animation-direction">#</a> animation-direction( $direction )</h4>
+
+<p>Specifies the direction an animation should play in where $direction can be: 'normal', 'reverse', 'alternate', or 'alternate-reverse'. (<a href="http://www.w3.org/TR/css3-animations/#animation-direction-property">W3C Spec Reference</a>)</p>
+
+<p>Example:</p>
+<script type="syntaxhighlighter" class="brush: sass"><![CDATA[
+@include animation-direction( reverse );
+]]></script>
+
+<h4><a name="mixin-animation-play-state">#</a> animation-play-state( $state )</h4>
+
+<p>Specifies whether an animation is running or paused, where $state may be: 'running' or 'paused'. (<a href="http://www.w3.org/TR/css3-animations/#animation-play-state-property">W3C Spec Reference</a>)
+
+<p>Example:</p>
+<script type="syntaxhighlighter" class="brush: sass"><![CDATA[
+@include animation-play-state( paused );
+]]></script>
+
+<h4><a name="mixin-animation-delay">#</a> animation-delay( $delay )</h4>
+
+<p>Specifies a delay to apply to an animation, in seconds or milliseconds. (<a href="http://www.w3.org/TR/css3-animations/#animation-delay-property">W3C Spec Reference</a>)</p>
+
+<p>Example:</p>
+<script type="syntaxhighlighter" class="brush: sass"><![CDATA[
+@include animation-delay( 2s );
+]]></script>
+
+<h4><a name="mixin-keyframes">#</a> keyframes( $name ) { @content }</h4>
+
+<p>Specifies a set of keyframes where each CSS property in the given keyframes are compatible across all modern browsers. This mixin should **not** be used if you are passing in properties with browser prefixes. (<a href="http://www.w3.org/TR/css3-animations/#keyframes">W3C Spec Reference</a>)</p>
+
+<p>Example:</p>
+
+<script type="syntaxhighlighter" class="brush: sass"><![CDATA[
+@include keyframes( 'fadeIn' ) {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+]]></script>
+
+<h4><a name="mixin-keyframes-webkit">#</a> webkit-keyframes( $name ) { @content }</h4>
+
+<p>Specifies a set of keyframes to be used for Webkit-based browsers. This mixin is implemented in the same manner as keyframes() above.</p>
+
+<h4><a name="mixin-keyframes-mozilla">#</a> moz-keyframes( $name ) { @content }</h4>
+
+<p>Specifies a set of keyframes to be used for Mozilla-based browsers. This mixin is implemented in the same manner as keyframes() above.</p>
+
+<h4><a name="mixin-keyframes-opera">#</a> o-keyframes( $name ) { @content }</h4>
+
+<p>Specifies a set of keyframes to be used for Opera browsers. This mixin is implemented in the same manner as keyframes() above.</p>
+
+<h4><a name="mixin-keyframes-official">#</a> official-keyframes($name) { @content }</h4>
+
+<p>Specifies a set of keyframes to be used for browsers that support the official @keyframes syntax. This mixin should be used in conjunction with one or more of the browser-specific keyframe mixins. If you are **only** using this mixin, you may as well just use the global keyframes() mixin above. This mixin is implemented in the same manner as keyframes() above.</p>
+
+<h3>Preset List</h3>
+
+<p>By default, Companimation includes a set of mixins to get you started quickly. These presets include animations unique to Companimation, as well as a full port of [Dan Eden's Animate.css](http://daneden.me/animate/). Presets work similar to the way Compass modules work: you can import entire categories of animations at once, or individually if you prefer granular imports.</p>
+
+<p>To use any of these presets, import an animation (or its category) and then use @extend on the selector you wish to apply the animation to. The name of any given animation for extending purposes is the same as the last part of the import path.</p>
+
+<p>Example:</p>
+
+<script type="syntaxhighlighter" class="brush: sass"><![CDATA[
+@import 'companimation/preset/bounce/bounceIn';
+
+h1 {
+    @extend %bounceIn;
+}
+]]></script>
+
+<ul>
+  <li>bounce
+    <ul>
+      <li>bounce</li>
+      <li>bounceIn</li>
+      <li>bounceInDown</li>
+      <li>bounceInLeft</li>
+      <li>bounceInRight</li>
+      <li>bounceInUp</li>
+      <li>bounceOut</li>
+      <li>bounceOutDown</li>
+      <li>bounceOutLeft</li>
+      <li>bounceOutRight</li>
+      <li>bounceOutUp</li>
+    </ul>
+  </li>
+  <li>fade
+    <ul>
+      <li>fadeIn</li>
+      <li>fadeInDown</li>
+      <li>fadeInDownBig</li>
+      <li>fadeInLeft</li>
+      <li>fadeInLeftBig</li>
+      <li>fadeInRight</li>
+      <li>fadeInRightBig</li>
+      <li>fadeInUp</li>
+      <li>fadeInUpBig</li>
+      <li>fadeOut</li>
+      <li>fadeOutDown</li>
+      <li>fadeOutDownBig</li>
+      <li>fadeOutLeft</li>
+      <li>fadeOutLeftBig</li>
+      <li>fadeOutRight</li>
+      <li>fadeOutRightBig</li>
+      <li>fadeOutUp</li>
+      <li>fadeOutUpBig</li>
+    </ul>
+  </li>
+  <li>filters (<span style="color: red; font-weight: bold;">experimental</span>)
+    <ul>
+      <li>blurIn</li>
+      <li>blurInDown</li>
+      <li>blurInLeft</li>
+      <li>blurInRight</li>
+      <li>blurInUp</li>
+      <li>blurOut</li>
+      <li>blurOutDown</li>
+      <li>blurOutLeft</li>
+      <li>blurOutRight</li>
+      <li>blurOutUp</li>
+      <li>greyscaleIn</li>
+      <li>greyscaleOut</li>
+    </ul>
+  </li>
+  <li>flip
+    <ul>
+      <li>flip</li>
+      <li>flipInX</li>
+      <li>flipInY</li>
+      <li>flipOutX</li>
+      <li>flipOutY</li>
+    </ul>
+  </li>
+  <li>roll
+    <ul>
+      <li>rollIn</li>
+      <li>rollOu</li>
+    </ul>
+  </li>
+  <li>rotate
+    <ul>
+      <li>rotateIn</li>
+      <li>rotateInDownLeft</li>
+      <li>rotateInDownRight</li>
+      <li>rotateInUpLeft</li>
+      <li>rotateInUpRight</li>
+      <li>rotateOut</li>
+      <li>rotateOutDownLeft</li>
+      <li>rotateOutDownRight</li>
+      <li>rotateOutUpLeft</li>
+      <li>rotateOutUpRight</li>
+    </ul>
+  </li>
+  <li>special
+    <ul>
+      <li>flash</li>
+      <li>hinge</li>
+      <li>lightSpeedIn</li>
+      <li>lightSpeedOut</li>
+      <li>pulse</li>
+      <li>shake</li>
+      <li>swing</li>
+      <li>tada</li>
+      <li>wiggle</li>
+      <li>wobble</li>
+    </ul>
+  </li>
+</ul>
