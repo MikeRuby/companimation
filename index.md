@@ -20,5 +20,19 @@ Companimation provides two unique things: a basic set of mixins to help you crea
 Companimation is available as a RubyGem. To install it, open up a terminal and type:
 
 {% highlight bash %}
+
 gem install companimation
+
+{% endhighlight %}
+
+After you've installed the gem, getting Companimation into your project is as easy as requiring it in your Compass configuration file and then importing it into your Sass stylesheet:
+
+{% highlight ruby %}
+// config.rb
+require 'companimation'
+{% endhighlight %}
+
+{% highlight css %}
+// app.scss
+@import 'companimation';
 {% endhighlight %}
