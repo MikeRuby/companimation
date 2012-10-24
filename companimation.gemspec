@@ -1,8 +1,8 @@
 Gem::Specification.new do |s|
 
     # Version Info
-    s.version = "0.1"
-    s.date = "2012-10-02"
+    s.version = "0.2"
+    s.date = "2012-10-24"
 
     # Details
     s.name = "companimation"
