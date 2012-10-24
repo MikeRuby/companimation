@@ -1,0 +1,40 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+// Global
+
+body {
+  margin: 0 auto;
+  width: 627px;
+  font-family: sans-serif;
+}
+
+#{headings()} {
+    font-family: 'Open Sans', sans-serif;
+}
+
+// Header
+
+[role="banner"] {
+    h1, h2 {
+        text-align: center;
+    }
+
+    h1 {
+
+    }
+
+    h2 {
+
+    }
+}
+
+// Pygments
+
+.highlight {
+    pre {
+        padding: 10px 0;
+        margin: 0;
+    }
+}
+
+@import 'pygments';
