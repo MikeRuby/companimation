@@ -7,8 +7,10 @@
     function scrollHandler() {
         var scrollTop,
             percentage,
-            rotation;
+            rotation,
+            needle;
 
+        needle = document.getElementsByClassName('banner-logo-inner')[0];
         scrollTop = document.body.scrollTop;
 
         percentage = ((scrollTop % 800) / 800);
@@ -23,13 +25,6 @@
 
     }
 
-    function loaded() {
-        needle = document.getElementsByClassName('banner-logo-inner')[0];
-
-        window.addEventListener('scroll', scrollHandler);
-        window.addEventListener('resize', fixLogoToWindow);
-    }
-
     function fixLogoToWindow() {
         var horizontalCondition,
             verticalCondition,
@@ -39,10 +34,20 @@
         verticalCondition = document.body.scrollTop >= scrollSegment;
 
         if (horizontalCondition && verticalCondition) {
-            document.body.className = bodyClass;
+            document.body.classList.add(bodyClass);
         } else {
-            document.body.className = "";
+            document.body.classList.remove(bodyClass);
         }
+    }
+
+    function loaded() {
+        // Prevent intro animation if linking to a hash
+        if (window.location.hash) {
+            document.body.classList.add('no-animation');
+        }
+
+        window.addEventListener('scroll', scrollHandler);
+        window.addEventListener('resize', fixLogoToWindow);
     }
 
     window.addEventListener('load', loaded, false);

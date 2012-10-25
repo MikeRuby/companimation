@@ -39,7 +39,7 @@ Using presets in Companimation is a breeze. Presets take advantage of Sass 3.2 p
 @import 'companimation/preset/fade/fadeIn';
 @import 'companimation/preset/fade/fadeInUp';
 
-body {
+#banner {
   @extend %fadeIn;
 }
 

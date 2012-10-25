@@ -26,6 +26,11 @@ body {
   max-width: 630px;
   padding: 0 15px;
   font-family: sans-serif;
+  color: #222;
+}
+
+.no-animation * {
+    -webkit-animation-name: none !important;
 }
 
 #{headings()} {
@@ -107,6 +112,16 @@ body {
     @extend %fadeInUp;
     @include animation-duration(2s);
     @include animation-delay(4.5s);
+}
+
+// Footer
+
+[role="contentinfo"] {
+    border-top: 1px solid #ddd;
+    text-align: center;
+    @include leader;
+    @include padding-leader;
+    @include padding-trailer;
 }
 
 // Pygments
