@@ -2,6 +2,7 @@
 @import 'compass/css3/images';
 @import 'compass/typography/vertical_rhythm';
 @import 'compass/css3/box-sizing';
+
 @import 'companimation';
 @import 'companimation/preset/fade/fadeIn';
 
@@ -74,8 +75,9 @@ body {
 
 .highlight {
     pre {
-        padding: 10px 0;
+        padding: 10px;
         margin: 0;
+        background: #f8f8f8;
     }
 }
 
