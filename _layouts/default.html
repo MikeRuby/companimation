@@ -8,12 +8,21 @@
     <body>
 
         <header role="banner">
-            <div class="banner-logo"><div class="banner-logo-inner"></div></div>
+
+            <div class="banner-logo-placeholder">
+                <div class="banner-logo">
+                    <div class="banner-logo-inner"></div>
+                </div>
+            </div>
+
             <h1>Companimation</h1>
-            <h2>CSS animations. In Compass. Real easy-like.<br />Sodding brilliant.</h2>
+            <h2>CSS animations. In Compass. Real easy-like.<br /><span class="fadeLate">Sodding brilliant.</span></h2>
+
         </header>
 
-        {{ content }}
+        <div role="main">
+            {{ content }}
+        </div>
 
         <script src="js/main.js"></script>
         <script type="text/javascript">
