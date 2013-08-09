@@ -2,7 +2,9 @@
 
 CSS animations. In Compass. Real easy-like. Sodding brilliant.
 
-_Abandoned:_ Given that an official animation module is coming with [Compass 0.13](http://beta.compass-style.org/reference/compass/css3/animation/), I will not be doing any more work on this.
+## Project Status: Abandoned
+
+Given that an official animation module is coming with [Compass 0.13](http://beta.compass-style.org/reference/compass/css3/animation/), I will not be doing any more work on this.
 
 ## Usage
 
